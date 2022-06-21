@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Edit Employee Details</title>
+  </head>
+  <body>
+    <center>
+        <h1>Update Employee Name</h1>
+        <h1>Emploee id is {{employeedata.id}}</h1>
+        <form method="POST" action = {% url 'update_employee'%}>
+            {% csrf_token %}
+            <table border="1">
+                <tr>
+                    <td>Employee id</td>
+                    <td><input type ="text" disabled = "disabled" value={{employeedata.id}} name={{employeedata.id}}></td>
+                </tr>
+                <tr>
+                    <td>Employee Name</td>
+                    <td><input type ="text" value={{employeedata.name}} name="name"></td>
+                </tr>
+                <tr>
+                    <td>Employee Email</td>
+                    <td><input type ="text" disabled = "disabled" value={{employeedata.email}} name="email"></td>
+                </tr>
+                <tr>
+                    <td>Employee Mobile</td>
+                    <td><input type ="text" value={{employeedata.mobile}} name="mobile"></td>
+                </tr>
+                <tr>
+                    <td>Employee Dept</td>
+                    <td><input type ="text" value={{employeedata.dept}} name = "dept"></td>
+                </tr>
+            </table>
+            <input type="submit" value="update"/>
+            <a href="{% url 'retrive'%}"> Home Page</a>
+            <hr/>
+            {% if messages %}
+            {% for result in messages%}
+            <b style="green"><{{result}}/b>
+            {% endfor %}
+            {% endif %}
+        </form>
+        
+    </center>
+  </body>
+</html>

@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Create Employee</title>
+  </head>
+  <body>
+    <center>
+        <h1>Add New Eployee</h1>
+        <form method="POST">
+            {% csrf_token %}
+            <table border="1">
+                <tr>
+                    <td>Employee Name</td>
+                    <td><input type ="text" placeholder="Employee Name" name="name"></td>
+                </tr>
+                <tr>
+                    <td>Employee Email</td>
+                    <td><input type ="text" placeholder="Employee Email" name="email"></td>
+                </tr>
+                <tr>
+                    <td>Employee Mobile</td>
+                    <td><input type ="text" placeholder="Employee Mobile" name="mobile"></td>
+                </tr>
+                <tr>
+                    <td>Employee Dept</td>
+                    <td><input type ="text" placeholder="Employee Dept" name = "dept"></td>
+                </tr>
+            </table>
+            <input type="submit" value="create"/>
+            <a href="{% url 'retrive'%}"> Home Page</a>
+            <hr/>
+            {% if messages %}
+            {% for result in messages%}
+            <b style="green"><{{result}}/b>
+            {% endfor %}
+            {% endif %}
+        </form>
+        
+    </center>
+  </body>
+</html>

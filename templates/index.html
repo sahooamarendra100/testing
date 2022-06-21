@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Python Training</title>
+  </head>
+  <body>
+    <center>
+        <h1>How to crate a crud operatation</h1>
+        <h1>Django Rest Framework</h1>
+        <a href="{% url 'create'%}"> Add a new Employee</a>
+        <table border="1">
+            <tr>
+                <th>Employee Id</th>
+                <th>Employee Name</th>
+                <th>Mobile</th>
+                <th>Department</th>
+                <th>Email</th>
+            </tr>
+            {% for displaylist in employeedata %}
+                <tr>
+                    <td>{{ displaylist.id }}</td>
+                    <td>{{ displaylist.name }}</td>
+                    <td>{{ displaylist.mobile }}</td>
+                    <td>{{ displaylist.dept }}</td>
+                    <td>{{ displaylist.email }}</td>
+                    <td><a href="{% url 'update' displaylist.id %}">edit</a></td>
+                    <td><a href="{% url 'delete' displaylist.id %}">delete</a></td>
+                </tr>
+            {% endfor %}
+        </table>
+    </center>
+  </body>
+</html>
